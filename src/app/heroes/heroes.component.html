@@ -1,0 +1,31 @@
+<!--<h1>{{hero.name|uppercase}} Details</h1>
+<div><span>id:</span>{{hero.id}}</div>
+<div><span>name:</span>{{hero.name}}</div>
+-->
+
+<!--ngModel是Angular双向数据绑定语法-->
+<!--
+<div>
+    <label for="name">Hero Name:</label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>
+-->
+<h2>列示英雄</h2>
+<ul class="heroes">
+    <!--不要忘了 ngFor 前面的星号（*），它是该语法中的关键部分。-->
+    <li *ngFor="let hero of heroes">
+        <!--这是 Angular 事件绑定 语法的例子。
+        click 外面的圆括号会让 Angular 监听这个 <button> 元素的 click 事件。 
+            当用户点击 <button> 时，Angular 就会执行表达式 onSelect(hero)。-->
+        <!--<button [class.selected]="hero === selectedHero" type="button" (click)="onSelected(hero)">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+        </button>-->
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </a>
+    </li>
+</ul>
+
+<!--把 HeroesComponent.selectedHero 绑定到该元素的 hero 属性，就像这样。[hero]="selectedHero" 是 Angular 的属性绑定语法。-->
+<!--<app-hero-detail [hero]="selectedHero"></app-hero-detail>-->

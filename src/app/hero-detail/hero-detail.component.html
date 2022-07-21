@@ -1,0 +1,15 @@
+<p>hero-detail info!</p>
+
+<!--只有在选择英雄时才会显示英雄详细信息。最初创建组件时，没有所选的 hero，因此我们将 *ngIf 指令添加到包装 hero 详细信息的 <div> 中，
+    以指示 Angular 仅在实际定义 selectedHero 时（在它被通过点击英雄来选择）。-->
+        <div *ngIf="hero">
+
+        <h2>{{hero.name | uppercase}} Details</h2>
+        <div><span>id: </span>{{hero.id}}</div>
+        <div>
+          <label for="hero-name">Hero name: </label>
+          <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+        </div>
+      
+      </div>
+      <button type="button" (click)="goBack()">go back</button>
